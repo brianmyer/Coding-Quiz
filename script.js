@@ -5,6 +5,7 @@
 //     console.log(timer)
 // }, 1000)
 let container = document.querySelector('.container');
+let codingQuestion = document.querySelector('#question')
 let answer1 = document.querySelector('#answer1');
 let answer2 = document.querySelector('#answer2');
 let answer3 = document.querySelector('#answer3');
@@ -37,6 +38,7 @@ let questions =
 // console.log(questions[0].correctAnswer)
 
 function renderQuestion(event) {
+    codingQuestion.textContent = questions[currentQuestion].question
     answer1.textContent = questions[currentQuestion].answers[0]
     answer2.textContent = questions[currentQuestion].answers[1]
     answer3.textContent = questions[currentQuestion].answers[2]
