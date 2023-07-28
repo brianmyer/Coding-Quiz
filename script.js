@@ -28,7 +28,7 @@ beginTest.addEventListener('click', function (event) {
     highScore.style.visibility = "hidden"
     intervalId = setInterval(function () {
             timer -= 1
-            // console.log(timer)
+            console.log(timer)
             countdown.textContent = timer
         }, 1000)
         renderQuestion()
@@ -39,6 +39,8 @@ beginTest.addEventListener('click', function (event) {
         answer4.style.visibility = "visible"
         currentQuestion++
     })
+
+    //need function to decrement timer when wrong choice is selected
     container.addEventListener('click', function (event) {
         let element = event.target;
         if (currentQuestion === questions.length) {

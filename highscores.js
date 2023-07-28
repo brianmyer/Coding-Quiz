@@ -8,34 +8,36 @@ let saveButton = document.querySelector("#save");
 init();
 
 function saveLastResult() {
-  let results = {
-    initials: initials.value,
-    lastScore: lastScoreValue
-  };
+    let results = {
+        initials: initials.value,
+        lastScore: lastScoreValue
+    };
 
-  localStorage.setItem('results', JSON.stringify(results));
+    localStorage.setItem('results', JSON.stringify(results));
 
 }
 
 function renderLastResult() {
-  let lastResult = JSON.parse(localStorage.getItem('results'));
+    let lastResult = JSON.parse(localStorage.getItem('results'));
 
-  if (lastResult !== null) {
-    savedInitials.textContent = lastResult.initials;
-    savedScore.textContent = lastResult.lastScore;
-  }
+    if (lastResult !== null) {
+        savedInitials.textContent = lastResult.initials;
+        savedScore.textContent = lastResult.lastScore;
+    }
 }
 
 saveButton.addEventListener('click', function (event) {
-  event.preventDefault();
-  saveLastResult();
-  renderLastResult();
+    event.preventDefault();
+    saveLastResult();
+    renderLastResult();
+    initials.value = '';
+    lastScore.textContent = "Your Score: ";
 });
 
 function init() {
-    lastScore.textContent = "Your Score: "+lastScoreValue;
+    lastScore.textContent = "Your Score: " + lastScoreValue;
 
-  renderLastResult();
+    renderLastResult();
 }
 
 //Activity 26 to create ul and appendChild
