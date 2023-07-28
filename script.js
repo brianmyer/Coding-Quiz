@@ -94,5 +94,5 @@ function gameOver() {
     answer3.style.visibility = "hidden"
     answer4.style.visibility = "hidden"
     highScore.style.visibility = "visible"
-
+    localStorage.setItem('score', timer);
 }

@@ -7,7 +7,21 @@
 <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    
+    <div class="card">
+        <h2>Enter Your Initials</h2>
+        <form>
+            <label for="name">Initials</label>
+              <input type="text" id="initials">
+              <p id="last-score"></p>
+          <button id="save">SAVE</button>
+        </form>    
+      </div>
+  
+      <div class="card">
+        <h2>High Score List</h2>
+        <p>Initials: <span id="saved-initials"></span></p>
+        <p>Score: <span id="saved-score"></span></p>
+      </div>
     <script src="./highscores.js"></script>
 </body>
 </html>
