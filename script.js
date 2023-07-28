@@ -6,6 +6,7 @@ let answer2 = document.querySelector('#answer2');
 let answer3 = document.querySelector('#answer3');
 let answer4 = document.querySelector('#answer4');
 let beginTest = document.querySelector('button');
+let countdown = document.querySelector('#countdown');
 let currentQuestion = 0;
 let intervalId;
 
@@ -16,6 +17,7 @@ beginTest.addEventListener('click', function (event) {
     intervalId = setInterval(function () {
             timer -= 1
             console.log(timer)
+            countdown.textContent = timer
         }, 1000)
         renderQuestion()
         currentQuestion++
@@ -37,13 +39,6 @@ let questions =
     { question: 'In order to clone a repository to your computer from gitHub, you use which command?', answers: ['git pull', 'git push', 'git commit', 'git add'], correctAnswer: 'git pull' },
     { question: 'querySelector parameters use which programming language to target elements?', answers: ['JavaScript', 'Markdown', 'CSS', 'API'], correctAnswer: 'CSS' }
     ]
-
-// console.log(questions[0].question)
-// console.log(questions[0].answers[0])
-// console.log(questions[0].answers[1])
-// console.log(questions[0].answers[2])
-// console.log(questions[0].answers[3])
-// console.log(questions[0].correctAnswer)
 
 function renderQuestion(event) {
     codingQuestion.textContent = questions[currentQuestion].question
