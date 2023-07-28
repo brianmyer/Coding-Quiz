@@ -28,10 +28,10 @@ function renderLastResult() {
 
 saveButton.addEventListener('click', function (event) {
     event.preventDefault();
-    saveLastResult();
-    renderLastResult();
-    initials.value = '';
-    lastScore.textContent = "Your Score: ";
+        saveLastResult();
+        renderLastResult();
+        initials.value = '';
+        lastScore.textContent = "Your Score: ";
 });
 
 function init() {
