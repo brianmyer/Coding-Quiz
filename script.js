@@ -7,15 +7,25 @@ let answer3 = document.querySelector('#answer3');
 let answer4 = document.querySelector('#answer4');
 let beginTest = document.querySelector('button');
 let countdown = document.querySelector('#countdown');
+let highScore = document.querySelector('#highscore');
 let currentQuestion = 0;
 let intervalId;
+let timer;
+let questions =
+    [{ question: 'Which programming languages provides the structure of a webpage?', answers: ['HTML', 'CSS', 'JavaScript', 'README'], correctAnswer: 'HTML' },
+    { question: 'A class selector in CSS is determined by adding what before the value?', answers: ['#', 'Nothing', '.', '$'], correctAnswer: '.' },
+    { question: 'A README file uses what kind of programming language?', answers: ['CSS', 'JavaScript', 'Markdown', 'API'], correctAnswer: 'Markdown' },
+    { question: 'In order to clone a repository to your computer from gitHub, you use which command?', answers: ['git pull', 'git push', 'git commit', 'git add'], correctAnswer: 'git pull' },
+    { question: 'querySelector parameters use which programming language to target elements?', answers: ['JavaScript', 'Markdown', 'CSS', 'API'], correctAnswer: 'CSS' }
+    ]
 
 init()
 
 beginTest.addEventListener('click', function (event) {
     currentQuestion = 0
-    timer = 120
+    timer = 60
     clearInterval(intervalId)
+    highScore.style.visibility = "hidden"
     intervalId = setInterval(function () {
             timer -= 1
             // console.log(timer)
@@ -28,25 +38,29 @@ beginTest.addEventListener('click', function (event) {
         answer3.style.visibility = "visible"
         answer4.style.visibility = "visible"
         currentQuestion++
-})
-container.addEventListener('click', function (event) {
-    let element = event.target;
-    if (element.matches('.answers') && currentQuestion < questions.length) {
-        console.log(currentQuestion)
-        renderQuestion()
-        currentQuestion++
+    })
+    container.addEventListener('click', function (event) {
+        let element = event.target;
+        if (currentQuestion === questions.length) {
+            gameOver()            
+        } else if (element.matches('.answers')) {
+            console.log(currentQuestion)
+            renderQuestion()
+            currentQuestion++
+        }
     }
-}
-)
+    )
 
-let questions =
-    [{ question: 'Which programming languages provides the structure of a webpage?', answers: ['HTML', 'CSS', 'JavaScript', 'README'], correctAnswer: 'HTML' },
-    { question: 'A class selector in CSS is determined by adding what before the value?', answers: ['#', 'Nothing', '.', '$'], correctAnswer: '.' },
-    { question: 'A README file uses what kind of programming language?', answers: ['CSS', 'JavaScript', 'Markdown', 'API'], correctAnswer: 'Markdown' },
-    { question: 'In order to clone a repository to your computer from gitHub, you use which command?', answers: ['git pull', 'git push', 'git commit', 'git add'], correctAnswer: 'git pull' },
-    { question: 'querySelector parameters use which programming language to target elements?', answers: ['JavaScript', 'Markdown', 'CSS', 'API'], correctAnswer: 'CSS' }
-    ]
-
+    highScore.addEventListener('click', function(){
+        window.location.href = 'highscores.html'
+    })
+    
+    // this does not work
+    if (timer < 1 || currentQuestion === questions.length) {
+        gameOver()
+    
+    }
+    
 function init (){
     clearInterval(intervalId)
     codingQuestion.style.visibility = "hidden"
@@ -54,6 +68,7 @@ function init (){
     answer2.style.visibility = "hidden"
     answer3.style.visibility = "hidden"
     answer4.style.visibility = "hidden"
+    highScore.style.visibility = "hidden"
 }
 
 function renderQuestion(event) {
@@ -73,9 +88,11 @@ function renderQuestion(event) {
 
 function gameOver() {
     clearInterval(intervalId)
-    codingQuestion.style.visibility = "hidden"
+    codingQuestion.textContent = `Your score is ${timer}!`
     answer1.style.visibility = "hidden"
     answer2.style.visibility = "hidden"
     answer3.style.visibility = "hidden"
     answer4.style.visibility = "hidden"
+    highScore.style.visibility = "visible"
+
 }
