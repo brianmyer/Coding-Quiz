@@ -10,17 +10,21 @@ let answer1 = document.querySelector('#answer1');
 let answer2 = document.querySelector('#answer2');
 let answer3 = document.querySelector('#answer3');
 let answer4 = document.querySelector('#answer4');
-
+let beginTest = document.querySelector('button')
 let currentQuestion = 0;
 
+beginTest.addEventListener('click', function(event){
+    renderQuestion()
+})
 container.addEventListener('click', function(event) {
     let element = event.target;
-    if (element.matches('.answers')) {
+    if (element.matches('.answers') && currentQuestion < questions.length) {
         console.log('clicked')
         renderQuestion()
         currentQuestion++
     }
-})
+} 
+)
 
 let questions = 
 [{question: 'Which programming languages provides the structure of a webpage?', answers: ['HTML', 'CSS', 'JavaScript', 'README'], correctAnswer: 'HTML'},
