@@ -10,16 +10,23 @@ let countdown = document.querySelector('#countdown');
 let currentQuestion = 0;
 let intervalId;
 
+init()
+
 beginTest.addEventListener('click', function (event) {
     currentQuestion = 0
     timer = 120
     clearInterval(intervalId)
     intervalId = setInterval(function () {
             timer -= 1
-            console.log(timer)
+            // console.log(timer)
             countdown.textContent = timer
         }, 1000)
         renderQuestion()
+        codingQuestion.style.visibility = "visible"
+        answer1.style.visibility = "visible"
+        answer2.style.visibility = "visible"
+        answer3.style.visibility = "visible"
+        answer4.style.visibility = "visible"
         currentQuestion++
 })
 container.addEventListener('click', function (event) {
@@ -40,6 +47,15 @@ let questions =
     { question: 'querySelector parameters use which programming language to target elements?', answers: ['JavaScript', 'Markdown', 'CSS', 'API'], correctAnswer: 'CSS' }
     ]
 
+function init (){
+    clearInterval(intervalId)
+    codingQuestion.style.visibility = "hidden"
+    answer1.style.visibility = "hidden"
+    answer2.style.visibility = "hidden"
+    answer3.style.visibility = "hidden"
+    answer4.style.visibility = "hidden"
+}
+
 function renderQuestion(event) {
     codingQuestion.textContent = questions[currentQuestion].question
     answer1.textContent = questions[currentQuestion].answers[0]
@@ -57,9 +73,9 @@ function renderQuestion(event) {
 
 function gameOver() {
     clearInterval(intervalId)
-    codingQuestion.textContent = ""
-    answer1.textContent = ""
-    answer2.textContent = ""
-    answer3.textContent = ""
-    answer4.textContent = ""
+    codingQuestion.style.visibility = "hidden"
+    answer1.style.visibility = "hidden"
+    answer2.style.visibility = "hidden"
+    answer3.style.visibility = "hidden"
+    answer4.style.visibility = "hidden"
 }
