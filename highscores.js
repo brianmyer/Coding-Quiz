@@ -49,6 +49,7 @@ function init() {
 
 //this does not work
 function addScore() {
+    scoreList.textContent = '';
     for (let i = 0; i < scores.length; i++) {
         let score = scores[i];
     
@@ -62,7 +63,8 @@ function addScore() {
 
 //this does not work
 function addInitials() {
-    for (let i = 0; i < scores.length; i++) {
+    initialList.textContent = '';
+    for (let i = 0; i < inits.length; i++) {
         let init = inits[i];
     
         let li = document.createElement("li");

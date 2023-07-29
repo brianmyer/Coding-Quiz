@@ -21,24 +21,31 @@ let questions =
 
 init()
 
+setInterval(function() {
+    if (timer === 0) {
+        gameOver()
+    }
+    }, 1000)
+    
+
 beginTest.addEventListener('click', function (event) {
     currentQuestion = 0
     timer = 60
     clearInterval(intervalId)
     highScore.style.visibility = "hidden"
     intervalId = setInterval(function () {
-            timer -= 1
-            console.log(timer)
-            countdown.textContent = timer
-        }, 1000)
-        renderQuestion()
-        codingQuestion.style.visibility = "visible"
-        answer1.style.visibility = "visible"
-        answer2.style.visibility = "visible"
-        answer3.style.visibility = "visible"
-        answer4.style.visibility = "visible"
-        currentQuestion++
-    })
+        timer -= 1
+        console.log(timer)
+        countdown.textContent = timer
+    }, 1000)
+    renderQuestion()
+    codingQuestion.style.visibility = "visible"
+    answer1.style.visibility = "visible"
+    answer2.style.visibility = "visible"
+    answer3.style.visibility = "visible"
+    answer4.style.visibility = "visible"
+    currentQuestion++
+})
 
     //need function to decrement timer when wrong choice is selected
     container.addEventListener('click', function (event) {
@@ -57,6 +64,7 @@ beginTest.addEventListener('click', function (event) {
         window.location.href = 'highscores.html'
     })
     
+
     // this does not work
     if (timer < 1 || currentQuestion === questions.length) {
         gameOver()
