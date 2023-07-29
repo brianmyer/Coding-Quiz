@@ -17,6 +17,7 @@ saveButton.addEventListener('click', function (event) {
         renderLastResult();
         initials.value = '';
         lastScore.textContent = "Your Score: ";
+        window.location.href = './highscores2.html'
 });
 
 function saveLastResult() {
