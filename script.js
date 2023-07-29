@@ -1,5 +1,5 @@
 
-let container = document.querySelector('.container');
+let container = document.querySelector('#container');
 let codingQuestion = document.querySelector('#question')
 let answer1 = document.querySelector('#answer1');
 let answer2 = document.querySelector('#answer2');
@@ -7,7 +7,7 @@ let answer3 = document.querySelector('#answer3');
 let answer4 = document.querySelector('#answer4');
 let beginTest = document.querySelector('button');
 let countdown = document.querySelector('#countdown');
-let highScore = document.querySelector('#highscore');
+let highScore = document.querySelector('#high-score');
 let currentQuestion = 0;
 let intervalId;
 let timer;
@@ -36,14 +36,14 @@ beginTest.addEventListener('click', function (event) {
     intervalId = setInterval(function () {
         timer -= 1
         console.log(timer)
-        countdown.textContent = timer
+        countdown.textContent = `Time left: ${timer}`
     }, 1000)
     renderQuestion()
-    codingQuestion.style.visibility = "visible"
-    answer1.style.visibility = "visible"
-    answer2.style.visibility = "visible"
-    answer3.style.visibility = "visible"
-    answer4.style.visibility = "visible"
+    container.style.display = "block"
+    answer1.style.display = "block"
+    answer2.style.display = "block"
+    answer3.style.display = "block"
+    answer4.style.display = "block"
     currentQuestion++
 })
 
@@ -73,12 +73,8 @@ beginTest.addEventListener('click', function (event) {
     
 function init (){
     clearInterval(intervalId)
-    codingQuestion.style.visibility = "hidden"
-    answer1.style.visibility = "hidden"
-    answer2.style.visibility = "hidden"
-    answer3.style.visibility = "hidden"
-    answer4.style.visibility = "hidden"
     highScore.style.visibility = "hidden"
+    container.style.display = "none"
 }
 
 function renderQuestion(event) {
@@ -99,10 +95,10 @@ function renderQuestion(event) {
 function gameOver() {
     clearInterval(intervalId)
     codingQuestion.textContent = `Your score is ${timer}!`
-    answer1.style.visibility = "hidden"
-    answer2.style.visibility = "hidden"
-    answer3.style.visibility = "hidden"
-    answer4.style.visibility = "hidden"
+    answer1.style.display = "none"
+    answer2.style.display = "none"
+    answer3.style.display = "none"
+    answer4.style.display = "none"
     highScore.style.visibility = "visible"
     localStorage.setItem('score', timer);
 }
