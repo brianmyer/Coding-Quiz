@@ -47,6 +47,7 @@ function init() {
     renderLastResult();
 }
 
+//this does not work
 function addScore() {
     for (let i = 0; i < scores.length; i++) {
         let score = scores[i];
@@ -59,6 +60,7 @@ function addScore() {
       }
 }
 
+//this does not work
 function addInitials() {
     for (let i = 0; i < scores.length; i++) {
         let init = inits[i];
