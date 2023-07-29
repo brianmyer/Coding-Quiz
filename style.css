@@ -22,7 +22,7 @@ h2 {
 }
 
 h3 {
-    position: absolute;
+    position: fixed;
     top: 5vh;
     right: 5vw;
     color: var(--dark-blue);
@@ -59,7 +59,7 @@ button:hover {
 
 #section1 {
     width: 80vw;
-    margin: 15vh auto;
+    margin: 15vh auto 5vh;
     text-align: center;
 }
 
