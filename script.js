@@ -5,6 +5,7 @@ let answer1 = document.querySelector('#answer1');
 let answer2 = document.querySelector('#answer2');
 let answer3 = document.querySelector('#answer3');
 let answer4 = document.querySelector('#answer4');
+let answerReveal = document.querySelector('#answer-reveal');
 let beginTest = document.querySelector('button');
 let countdown = document.querySelector('#countdown');
 let highScore = document.querySelector('#high-score');
@@ -35,25 +36,29 @@ beginTest.addEventListener('click', function (event) {
     highScore.style.visibility = "hidden"
     intervalId = setInterval(function () {
         timer -= 1
-        console.log(timer)
         countdown.textContent = `Time left: ${timer}`
     }, 1000)
-    renderQuestion()
     container.style.display = "block"
     answer1.style.display = "block"
     answer2.style.display = "block"
     answer3.style.display = "block"
     answer4.style.display = "block"
+    renderQuestion()
     currentQuestion++
 })
 
-    //need function to decrement timer when wrong choice is selected
     container.addEventListener('click', function (event) {
         let element = event.target;
         if (currentQuestion === questions.length) {
             gameOver()            
         } else if (element.matches('.answers')) {
             console.log(currentQuestion)
+            if (element.textContent !== questions[currentQuestion-1].correctAnswer) {
+                timer = (timer - 10) 
+                answerReveal.textContent = 'Wrong!'
+            } else {
+                answerReveal.textContent = 'Correct!'
+            }
             renderQuestion()
             currentQuestion++
         }

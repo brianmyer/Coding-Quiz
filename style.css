@@ -97,6 +97,10 @@ button:hover {
     margin: 0 auto;
 }
 
+#answer-reveal {
+    color: var(--light-brown);
+}
+
 #start,
 #high-score,
 #save {
