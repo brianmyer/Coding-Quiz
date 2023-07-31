@@ -64,7 +64,7 @@ beginTest.addEventListener('click', function (event) {
     )
 
     highScore.addEventListener('click', function(){
-        window.location.href = 'highscores.html'
+        window.location.href = './assets/highscores.html'
     })
     
 function init (){
