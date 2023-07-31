@@ -54,7 +54,7 @@ beginTest.addEventListener('click', function (event) {
         } else if (element.matches('.answers')) {
             console.log(currentQuestion)
             if (element.textContent !== questions[currentQuestion-1].correctAnswer) {
-                timer = (timer - 10) 
+                timer -= 10
                 answerReveal.textContent = 'Wrong!'
             } else {
                 answerReveal.textContent = 'Correct!'
