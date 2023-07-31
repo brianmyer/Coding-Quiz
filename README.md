@@ -9,3 +9,5 @@ This application provides a short quiz on basic knowledge of HTML, CSS, and Java
 ![Alt text](<assets/images/Screenshot 2023-07-31 at 6.29.23 PM.png>)
 
 ## Link to Deployed Application
+
+https://brianmyer.github.io/Coding-Quiz/
