@@ -22,14 +22,6 @@ h2 {
 
 }
 
-#countdown {
-    position: fixed;
-    top: 5vh;
-    right: 5vw;
-    color: var(--dark-blue);
-    font-size: 20px;
-}
-
 a {
     position: fixed;
     top: 5vh;
@@ -50,6 +42,16 @@ input {
     margin: 0 5px;
 }
 
+li {
+    text-align: left;
+    width: 60vw;
+    padding: 2vh 5vh 0;
+}
+
+button:hover {
+    opacity: .65;
+}
+
 .answers {
     background: linear-gradient(var(--brown), var(--light-brown));
     font-size: 25px;
@@ -64,8 +66,27 @@ input {
     margin: 10vh auto 0;
 }
 
-button:hover {
-    opacity: .65;
+.hide {
+    display: none;
+}
+
+.popout {
+    background: linear-gradient(var(--brown), var(--light-brown));
+    font-size: 25px;
+    color: var(--dark-blue);
+    height: 5vh;
+    margin: 20px auto;
+    box-shadow: 5px 5px 10px var(--dark-blue);
+    border-radius: 10px;
+}
+
+
+#countdown {
+    position: fixed;
+    top: 5vh;
+    right: 5vw;
+    color: var(--dark-blue);
+    font-size: 20px;
 }
 
 #container {
@@ -101,14 +122,3 @@ button:hover {
     color: var(--light-brown);
 }
 
-#start,
-#high-score,
-#save {
-    background: linear-gradient(var(--brown), var(--light-brown));
-    font-size: 25px;
-    color: var(--dark-blue);
-    height: 5vh;
-    margin: 20px auto;
-    box-shadow: 5px 5px 10px var(--dark-blue);
-    border-radius: 10px;
-}

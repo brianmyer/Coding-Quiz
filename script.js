@@ -22,13 +22,6 @@ let questions =
 
 init()
 
-setInterval(function() {
-    if (timer === 0) {
-        gameOver()
-    }
-    }, 1000)
-    
-
 beginTest.addEventListener('click', function (event) {
     currentQuestion = 0
     timer = 60
@@ -37,6 +30,11 @@ beginTest.addEventListener('click', function (event) {
     intervalId = setInterval(function () {
         timer -= 1
         countdown.textContent = `Time left: ${timer}`
+        if (timer < 1 ) {
+            timer = 0
+            countdown.textContent = 0
+            gameOver()
+        }
     }, 1000)
     container.style.display = "block"
     answer1.style.display = "block"
@@ -68,13 +66,6 @@ beginTest.addEventListener('click', function (event) {
     highScore.addEventListener('click', function(){
         window.location.href = 'highscores.html'
     })
-    
-
-    // this does not work
-    if (timer < 1 || currentQuestion === questions.length) {
-        gameOver()
-    
-    }
     
 function init (){
     clearInterval(intervalId)
